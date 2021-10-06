@@ -67,8 +67,8 @@ Pod::Spec.new do |s|
     lh.dependency 'boost/pointer_cast-includes', '<= 1.51.0'
     lh.dependency 'boost/math-includes', '<= 1.51.0'
     lh.dependency 'boost/graph-includes', '<= 1.51.0'
-    lh.dependency 'eigen', '~> 3.2.4'
-  end
+    lh.dependency 'eigen', '~> 3.2.4'  
+end
 
   s.subspec 'Lib' do |l|
     l.source_files = 'WhirlyGlobeSrc/WhirlyGlobeLib/src/*.{mm,m}'
