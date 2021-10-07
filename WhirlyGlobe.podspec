@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/mousebird/WhirlyGlobe.git', :branch => 'master', :tag => 'v2.5' }
 
   s.compiler_flags = '-D__USE_SDL_GLES__', '-D__IPHONEOS__ -DSQLITE_OPEN_READONLY'
-  s.xcconfig = { "HEADER_SEARCH_PATHS" => "\"${PODS_ROOT}/eigen\" \"${PODS_ROOT}/clipper\" \"$(SDKROOT)/usr/include/libxml2\"" }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "\"${PODS_ROOT}/eigen\" \"${PODS_ROOT}/clipper\" \"$(SDKROOT)/usr/include/libxml2\" \"$(PODS_ROOT)/WhirlyGlobe/common/local_libs/eigen/\"" }
 
   s.default_subspec = 'MaplyComponent'
 
@@ -62,7 +62,10 @@ Pod::Spec.new do |s|
   s.subspec 'Lib-Headers' do |lh|
     lh.source_files = 'WhirlyGlobeSrc/WhirlyGlobeLib/include/*.h'
     lh.private_header_files = 'WhirlyGlobeSrc/WhirlyGlobeLib/include/*.h'
-    lh.dependency 'eigen', '~> 3.2.4'
+  end
+
+  s.subspec 'eigen' do |eig|
+    eig.preserve_paths = 'common/local_libs/eigen/Eigen/*', 'common/local_libs/eigen/Eigen/**/*.h'
   end
 
   s.subspec 'Lib' do |l|
@@ -70,6 +73,7 @@ Pod::Spec.new do |s|
     l.dependency 'WhirlyGlobe/Lib-Headers'
     l.dependency 'WhirlyGlobe/glues-wg'
     l.dependency 'WhirlyGlobe/octencoding'
+    l.dependency 'WhirlyGlobe/eigen'
     l.dependency 'proj4', '~> 4.8.0'
 #   Pulled internally
     l.dependency 'WhirlyGlobe/shapefile'
