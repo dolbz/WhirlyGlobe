@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/mousebird/WhirlyGlobe.git', :branch => 'master', :tag => 'v2.5' }
 
   s.compiler_flags = '-D__USE_SDL_GLES__', '-D__IPHONEOS__ -DSQLITE_OPEN_READONLY -DHAVE_PTHREAD=1 -DUNORDERED=1 -DLASZIPDLL_EXPORTS=1'
-  s.xcconfig = { "HEADER_SEARCH_PATHS" => "\"${PODS_ROOT}/eigen\" \"${PODS_ROOT}/clipper\" \"$(SDKROOT)/usr/include/libxml2\" \"${PODS_ROOT}/WhirlyGlobe/common/local_libs/laszip/include/\" \"$(PODS_ROOT)/WhirlyGlobe/common/local_libs/eigen/\"" }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "\"${PODS_ROOT}/eigen\" \"${PODS_ROOT}/clipper\" \"$(SDKROOT)/usr/include/libxml2\" \"${PODS_ROOT}/WhirlyGlobe/common/local_libs/laszip/include/\" \"$(PODS_ROOT)/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\" \"$(PODS_ROOT)/WhirlyGlobe/common/local_libs/eigen/\"" }
 
   s.default_subspec = 'MaplyComponent'
 
